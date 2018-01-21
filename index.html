@@ -2,14 +2,35 @@
 <html>
 
 <head>
-  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.5.13/vue.min.js" ></script>
+  <title>Slider test</title>
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.5.13/vue.min.js"></script>
+  <link rel="stylesheet" href="slider.css">
 </head>
 
 <body>
-  <div id="app">
+  <div id="simpleSlider" class="slidecontainer">
     {{ message }}
+    <input type="range" min="0" max="100" value={{firstSliderValue}} class="slider" v-model="firstSliderValue">
+    <span class=sliderValue>
+        {{ firstSliderValue }}
+    </span>
+    <input type="range" min="0" max="100" value={{secondSliderValue}} class="slider" v-model="secondSliderValue" disabled>
+    <span class=sliderValue>
+        {{ secondSliderValue }}
+    </span>
   </div>
-  <script type="text/javascript" src="slider.js" ></script>
+  <div id="doubleSlider" class="slidecontainer">
+    {{ message }}
+    <input type="range" min="0" max="100" value={{firstSliderValue}} class="slider" v-model="firstSliderValue" ref=firstSlider>
+    <span class=sliderValue>
+        {{ firstSliderValue }}
+    </span>
+    <input type="range" min="0" max="100" value={{secondSliderValue}} class="slider" v-model="secondSliderValue" ref=secondSlider disabled>
+    <span class=sliderValue>
+        {{ secondSliderValue }}
+    </span>
+  </div>
+  <script type="text/javascript" src="slider.js"></script>
 </body>
 
 </html>
